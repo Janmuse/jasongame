@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgp2fhm0amagh"]
+
+[ext_resource type="FontFile" uid="uid://4k01y77rbbhm" path="res://Fonts/PublicPixel.otf" id="1_3gj45"]
+[ext_resource type="Script" uid="uid://bca0ycox1okqs" path="res://scripts/dialog_player.gd" id="1_s14el"]
+[ext_resource type="AudioStream" uid="uid://257mfaw2ynnr" path="res://Texto.wav" id="3_w7key"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s14el"]
+font = ExtResource("1_3gj45")
+font_size = 8
+
+[node name="DialogPlayer" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_s14el")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 221.0
+offset_top = 99.0
+offset_right = 306.0
+offset_bottom = 168.0
+label_settings = SubResource("LabelSettings_s14el")
+autowrap_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="SFX_dialogo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_w7key")
+volume_db = -5.0

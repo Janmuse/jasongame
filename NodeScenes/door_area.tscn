@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://brt3tskgpr678"]
+
+[ext_resource type="Script" uid="uid://wd5mi3lcp532" path="res://scripts/door_area.gd" id="1_lq5rw"]
+
+[node name="DoorArea" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_lq5rw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3 uid="uid://cx5bdh20bgu7j"]
+
+[ext_resource type="Script" uid="uid://djlhhflgrmnei" path="res://scripts/player_jason.gd" id="1_hef0u"]
+[ext_resource type="Texture2D" uid="uid://csxoev868y52n" path="res://Jason.png" id="1_ktelw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hef0u"]
+atlas = ExtResource("1_ktelw")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tk2yy"]
+atlas = ExtResource("1_ktelw")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oowwr"]
+atlas = ExtResource("1_ktelw")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtfu2"]
+atlas = ExtResource("1_ktelw")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjdmn"]
+atlas = ExtResource("1_ktelw")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0sfe"]
+atlas = ExtResource("1_ktelw")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxbjy"]
+atlas = ExtResource("1_ktelw")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nxv68"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hef0u")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tk2yy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oowwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtfu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjdmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0sfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxbjy")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jixjc"]
+size = Vector2(20, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hef0u"]
+size = Vector2(20, 37)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_hef0u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nxv68")
+animation = &"idle"
+frame_progress = 0.189209
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_jixjc")
+debug_color = Color(0.242793, 0.506657, 1, 0.42)
+
+[node name="DialogInteractionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogInteractionArea"]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_hef0u")
+debug_color = Color(0.470338, 0.59042, 1.92523e-07, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.8
